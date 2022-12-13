@@ -14,7 +14,7 @@
 *.pdb
 
 #.gitignore
-# .gitignore
+.gitignore
 
 # .vscode
-# *.json
+*.json
