@@ -1,0 +1,20 @@
+# Executables
+*.exe
+
+# Object Files
+*.obj
+
+# Linker Files
+*.ilk
+
+# Libraries
+*.lib
+
+# Debug Files
+*.pdb
+
+#.gitignore
+# .gitignore
+
+# .vscode
+# *.json
