@@ -13,31 +13,37 @@ private:
     };
 
     using DSA = DataStructuresAndAlgorithmsType;
-    std::string m_Name; 
+    int32_t m_Id; 
+    std::string m_Name;
 
 public:
-    std::string_view SetModeType(DSA modeType)
+    int32_t SetModeType(DSA modeType)
     {
         switch (modeType)
         {
             case DSA::LINKED_LIST:
+                m_Id = 0;
                 m_Name = "LinkedList";
                 break;
             case DSA::SORTED_LINKED_LIST:
+                m_Id = 1;
                 m_Name = "SortedLinkedList";
                 break;
             case DSA::LINKED_STACK:
+                m_Id = 2;
                 m_Name = "LinkedStack";
                 break;
             case DSA::BINARY_SEARCH_TREE:
+                m_Id = 3;
                 m_Name = "BinarySearchTree";
                 break;
             default:
+                m_Id = 4;
                 m_Name = "None";
                 break;
         }
 
-        return m_Name;
+        return m_Id;
     }
 
     const std::string& GetName() const { return m_Name; }
@@ -79,11 +85,25 @@ int GetSomethin()
     return 10;
 }
 
+void Begin()
+{
+    //FileStream::Read("./Assignment.txt");
+
+    FileStream filepath("./Assignment_READ.txt");
+    filepath.Read();
+
+    if ()
+}
+
 int main()
 {
+    
+
     // FileStream filepath("./Assignment_READ.txt");
     // filepath.Read();
     
+    Begin();
+
     Node* mainNode = nullptr;
     LinkedList linkedList;
     

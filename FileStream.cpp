@@ -7,8 +7,65 @@ public:
         : m_Filepath(filepath)
     {}
 
-    void Read()
+    FileStream() : m_Filepath("./Assignment_READ.txt") {}
+
+    // static void Read(const std::string& filepath = "./Assignment_READ.txt")
+    // {
+    //     std::ifstream r_file(filepath, std::ios::in);
+    //     if (!r_file)
+    //     {
+    //         std::cerr << "GGGG\n";
+    //         return; 
+    //     }
+
+    //     while (r_file)
+    //     {
+    //         std::string line;
+
+    //         while (std::getline(r_file, line))
+    //         {
+    //             std::size_t offset = 0;
+    //             std::size_t whitespacePos = line.find(" ");
+
+    //             while (whitespacePos != std::string::npos)
+    //             {
+    //                 std::string word = line.substr(offset, whitespacePos - offset);
+    //                 std::cout << word << "\n";
+
+    //                 offset = ++whitespacePos;
+    //                 whitespacePos = line.find(" ", whitespacePos);
+                    
+    //                 if (whitespacePos == std::string::npos)
+    //                     break;
+    //             }
+    //         }
+    //     }
+    // }
+
+    void Read() //const std::string& filepath = "./Assignment_READ.txt"
     {
+        // std::ifstream r_file(m_Filepath, std::ios::in);
+        // if (!r_file)
+        // {
+        //     std::cerr << "GGGG\n";
+        //     return; 
+        // }
+
+        // while (r_file)
+        // {
+        //     std::string line;
+        //     r_file >> line;
+        //     std::cout << line << '\n';
+
+        //     std::stringstream ss;
+        //     ss << line;
+
+        //     // for (const auto& word : ss)
+        //     // {
+        //     //     std::cout << word << "\n";   
+        //     // }
+        // }
+
         std::ifstream r_file(m_Filepath, std::ios::in);
         if (!r_file)
         {
@@ -30,6 +87,8 @@ public:
                     std::string word = line.substr(offset, whitespacePos - offset);
                     std::cout << word << "\n";
 
+                    if (word == 'LinkedList' || )
+
                     offset = ++whitespacePos;
                     whitespacePos = line.find(" ", whitespacePos);
                     
@@ -37,31 +96,6 @@ public:
                         break;
                 }
             }
-        }
-    }
-
-    void Read(const std::string& filepath)
-    {
-        std::ifstream r_file(filepath, std::ios::in);
-        if (!r_file)
-        {
-            std::cerr << "GGGG\n";
-            return; 
-        }
-
-        while (r_file)
-        {
-            std::string line;
-            r_file >> line;
-            std::cout << line << '\n';
-
-            std::stringstream ss;
-            ss << line;
-
-            // for (const auto& word : ss)
-            // {
-            //     std::cout << word << "\n";   
-            // }
         }
     }
 
