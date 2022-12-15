@@ -1,5 +1,6 @@
-#include "UtilityHeaders.cpp"
+#include "State.cpp"
 
+#include <vector>
 class FileStream
 {
 public:
@@ -82,10 +83,27 @@ public:
                 std::size_t offset = 0;
                 std::size_t whitespacePos = line.find(" ");
 
+                int row = 0, column = 0;
+
                 while (whitespacePos != std::string::npos)
-                {
-                    std::string word = line.substr(offset, whitespacePos - offset);
-                    std::cout << word << "\n";
+                {    
+                    std::string words[32][5];
+                    //std::string word;
+                    // for (int i = 0; i != 31; i++) // Total row lines in Assignment_READ
+                    // {
+                    //     for (int j = 0; j != 5; )
+                    // }
+                    words[row][column] = line.substr(offset, whitespacePos - offset);
+                    //word = line.substr(offset, whitespacePos - offset);
+                    std::cout << words[row][column] << " ";
+                    //std::cout << word << "\n";
+                    column++;
+
+                    if (line == "LinkedList list")
+                    {
+                        m_DSA.m_Name = "list";
+                        m_DSA.m_Command = 
+                    }
 
                     if (word == 'LinkedList' || )
 
@@ -93,7 +111,11 @@ public:
                     whitespacePos = line.find(" ", whitespacePos);
                     
                     if (whitespacePos == std::string::npos)
+                    {
+                        std::cout << "\n";
+                        row++;
                         break;
+                    }
                 }
             }
         }
@@ -119,4 +141,8 @@ public:
     const std::string& GetFilepath() const { return m_Filepath; }
 private:
     std::string m_Filepath;
+
+    Command m_CommandState; 
+
+    DSAMapping<Mode::DSA> m_DSA;
 };

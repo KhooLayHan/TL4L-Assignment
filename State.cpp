@@ -1,8 +1,25 @@
-#include "LinkedList.cpp"
+#include "UtilityHeaders.cpp"
 
-void Begin()
+// Sample
+// {
+//     "LinkedList": {
+//         "name": "list",
+//         "command": "add",
+//         "value": 10
+//     }
+// }
+
+template <typename Mode>
+struct DSAMapping
+{   
+    std::string m_Name;
+    std::string m_Command;
+    int32_t m_Value;
+};
+
+class Mode
 {
-private:
+public:
     enum class DataStructuresAndAlgorithmsType
     {
         LINKED_LIST = 0,
@@ -13,9 +30,8 @@ private:
     };
 
     using DSA = DataStructuresAndAlgorithmsType;
-    std::string m_Name; 
 
-public:
+protected:
     std::string_view SetModeType(DSA modeType)
     {
         switch (modeType)
@@ -41,51 +57,37 @@ public:
     }
 
     const std::string& GetName() const { return m_Name; }
+
+private:
+    std::string m_Name; 
 };
 
-    
-}
-
-int GetSomethin()
+class Command
 {
-    return 10;
-}
+public:
+    enum class CommandMode : int16_t
+    {
+        CONSTRUCTOR_CALL = 0,
+        FUNCTION_CALL = 1
+    };
 
-void Begin()
-{
-    //FileStream::Read("./Assignment.txt");
+    int32_t SetCommandId(CommandMode mode)
+    {
+        int16_t id = static_cast<int16_t>(mode);
 
-    FileStream filepath("./Assignment_READ.txt");
-    filepath.Read();
+        switch (id)
+        {
+            case 0:
+                m_Id = id;
+                break;
+            case 1:
+                m_Id = id;
+                break;
+        }
 
-    if ()
-}
+        return m_Id;
+    }
 
-int main()
-{
-    
-
-    // FileStream filepath("./Assignment_READ.txt");
-    // filepath.Read();
-    
-    Node* mainNode = nullptr;
-    LinkedList linkedList;
-    
-    // linkedList.AddRear(&mainNode, 10);
-    // linkedList.AddRear(&mainNode, 20);
-    // linkedList.AddRear(&mainNode, 100);
-    // linkedList.AddRear(&mainNode, 50);
-
-    // linkedList.Print(mainNode);
-
-    // // //std::cout << linkedList.Min(mainNode);
-    // linkedList.Delete(mainNode, 20);
-    // // //linkedList.Search(mainNode, 20);
-    // // //linkedList.Search(mainNode, 100);
-    
-    // linkedList.Print(mainNode);
-
-    // // Command command;
-
-    // //command.SetCommandId(CommandMode::)
-}
+private:
+    int32_t m_Id;
+};
