@@ -1,4 +1,4 @@
-#include "State.cpp"
+#include "UtilityHeaders.cpp"
 
 #include <vector>
 class FileStream
@@ -42,6 +42,38 @@ public:
     //         }
     //     }
     // }
+
+    // static void ReadLine(const std::string& filepath = "./Assignment_READ.txt")
+    // {
+    //     std::ifstream r_file(filepath, std::ios::in);
+    //     if (!r_file)
+    //     {
+    //         std::cerr << "HHHHH\n";
+    //         return;
+    //     }
+
+    //     std::string line;
+    //     m_Line = line;
+    //     std::getline(r_file, line);
+    //     std::cout << line << "\n";  
+    // }
+
+    std::string ReadLine(const std::string& filepath)
+    {
+        std::ifstream r_file(m_Filepath, std::ios::in);
+        // if (!r_file)
+        // {
+        //     std::cerr << "HHHHH\n";
+        //     exit(-1);
+        // }
+
+        assert(r_file);
+
+        std::string line;
+        m_Line = line;
+        std::getline(r_file, line);
+        return line;  
+    }
 
     void Read() //const std::string& filepath = "./Assignment_READ.txt"
     {
@@ -99,13 +131,13 @@ public:
                     //std::cout << word << "\n";
                     column++;
 
-                    if (line == "LinkedList list")
-                    {
-                        m_DSA.m_Name = "list";
-                        m_DSA.m_Command = 
-                    }
+                    // if (line == "LinkedList list")
+                    // {
+                    //     m_DSA.m_Name = "list";
+                    //     m_DSA.m_Command = 
+                    // }
 
-                    if (word == 'LinkedList' || )
+                    // if (word == 'LinkedList' || )
 
                     offset = ++whitespacePos;
                     whitespacePos = line.find(" ", whitespacePos);
@@ -139,10 +171,12 @@ public:
     } 
 
     const std::string& GetFilepath() const { return m_Filepath; }
+    const std::string& GetCurrentLine() const { return m_Line; }
+    const std::string& GetCurrentWord() const { return m_Word; }
+
+
 private:
     std::string m_Filepath;
-
-    Command m_CommandState; 
-
-    DSAMapping<Mode::DSA> m_DSA;
+    std::string m_Line = "";
+    std::string m_Word = "";
 };
