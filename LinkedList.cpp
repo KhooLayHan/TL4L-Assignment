@@ -59,6 +59,7 @@ public:
 
         if (*head != nullptr)
         {
+            
             Node* tempNode = *head;
             
             while (tempNode->m_Next != nullptr)
@@ -67,6 +68,7 @@ public:
             tempNode->m_Next = newNode;
 
             FileStream::Write("list added " + std::to_string(data) + "\n");
+            printf("DDDDD\n");
         }
         else
         {
@@ -117,10 +119,10 @@ public:
         Node* deleteNode = nullptr;
         for (Node* tempNode = head; tempNode->m_Next != nullptr; tempNode = tempNode->m_Next)
         {
-            if (tempNode->m_Next->m_Data == data)
+            if (tempNode->m_Data == data)
             {
-                deleteNode = tempNode->m_Next;
-                tempNode->m_Next = tempNode->m_Next->m_Next;
+                deleteNode = tempNode;
+                tempNode = tempNode->m_Next;
                 delete deleteNode;
 
                 FileStream::Write("list deleted " + std::to_string(data) + "\n");

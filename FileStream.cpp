@@ -160,7 +160,7 @@ public:
 
     static void Write(std::string_view value, const std::string& filepath = "./Assignment_WRITE.txt")
     {
-        std::ofstream w_file(filepath, std::ios::app | std::ios::out);
+        std::ofstream w_file(filepath, std::ios::out);
         if (!w_file)
         {
             std::cerr << "FFFF\n";
