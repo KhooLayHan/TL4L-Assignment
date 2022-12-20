@@ -13,8 +13,12 @@
 # Debug Files
 *.pdb
 
-#.gitignore
+# GitIgnore File
 .gitignore
 
-# .vscode
+# VSCode Config File
 # *.json
+
+# Text Files
+Assignment_READ.txt
+Assignment_WRITE.txt
