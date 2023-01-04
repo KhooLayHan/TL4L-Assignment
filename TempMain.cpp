@@ -368,11 +368,22 @@ public:
             commandIndex++;
     }
 
-    const std::string&  GetId()         const { return m_DSA[environmentIndex].m_Id; }
-    const std::string&  GetClassName()  const { return m_DSA[environmentIndex].m_ClassName; }
-    const std::string&  GetName()       const { return m_DSA[environmentIndex].m_Name; }
-    const std::string&  GetCommand()    const { return m_DSA[environmentIndex].m_Command[commandIndex]; }
-    const int32_t       GetValue()      const { return m_DSA[environmentIndex].m_Value[commandIndex]; }
+    const std::string&  GetId() const { return m_DSA[environmentIndex].m_Id; }
+    const std::string&  GetId(int16_t index) const { return m_DSA[index].m_Id; }
+    
+    const std::string&  GetClassName() const { return m_DSA[environmentIndex].m_ClassName; }
+    const std::string&  GetClassName(int16_t index) const { return m_DSA[index].m_ClassName; }
+    
+    const std::string&  GetName() const { return m_DSA[environmentIndex].m_Name; }
+    const std::string&  GetName(int16_t index) const { return m_DSA[index].m_Name; }
+    
+    const std::string&  GetCommand() const { return m_DSA[environmentIndex].m_Command[commandIndex]; }
+    const std::string&  GetCommand(int16_t index, int16_t commandIndex) const { return m_DSA[index].m_Command[commandIndex]; }
+    
+    const int32_t       GetValue() const { return m_DSA[environmentIndex].m_Value[commandIndex]; }
+    const int32_t       GetValue(int16_t index, int16_t commandIndex) const { return m_DSA[index].m_Value[commandIndex]; }
+
+
 
 private:
     std::array<DataStructureAndAlgorithms, 4> m_DSA; 

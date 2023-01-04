@@ -57,6 +57,11 @@
 class EnvironmentIdBuilder
 {
 public:
+    std::array<DataStructureAndAlgorithms, 4> GetComponents()
+    {
+        return m_Environment.GetId();
+    }
+
     void ParseFileIntoWordComponents()
     {
         std::vector<std::string> lines = m_Filepath.Read();
