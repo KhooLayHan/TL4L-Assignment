@@ -1,4 +1,4 @@
-#include "State.cpp"
+#include "TempMain.cpp"
 
 struct Node
 {
@@ -7,42 +7,15 @@ struct Node
     Node* m_Previous;
 };
 
-// template <typename T>
-// class Node
-// {
-// public:
-//     T m_Data;
-//     std::unique_ptr<Node> m_Next;
-
-//     Node() = default;
-//     Node(T data, std::unique_ptr<Node> next = m_Head) : m_Data(data), m_Next(next) {}
-
-//     void GetData() const { return m_Data; }    
-//     void GetNext() const { return &m_Next; }    
-    
-//     //Node& SetHead() { return m_Head; }    
-     
-// private:
-//     static Node* m_Head;
-// };
-
-class LinkedListNode
-{
-
-};
-
-
-//Node* Minimum(Node* a, Node* b) { return (b < a) ? b : a; }
-
 class LinkedList
 {
 private:
     Node* m_Temp = nullptr;
-
+    
 public:
     LinkedList() 
     {
-        FileStream::Write("list constructed\n");
+        FileStream::Write(" constructed\n");
     }
 
     ~LinkedList()
@@ -51,7 +24,7 @@ public:
         m_Temp = nullptr;
     }
 
-    void AddRear(Node** head, int32_t data)
+    static void AddRear(Node** head, int32_t data)
     {     
         Node* newNode = (Node*)malloc(sizeof(Node));
         newNode->m_Data = data;
@@ -59,7 +32,6 @@ public:
 
         if (*head != nullptr)
         {
-            
             Node* tempNode = *head;
             
             while (tempNode->m_Next != nullptr)
@@ -68,7 +40,6 @@ public:
             tempNode->m_Next = newNode;
 
             FileStream::Write("list added " + std::to_string(data) + "\n");
-            printf("DDDDD\n");
         }
         else
         {
@@ -76,6 +47,30 @@ public:
             FileStream::Write("list added " + std::to_string(data) + "\n");
         }
     }
+
+    // void AddRear(Node** head, int32_t data)
+    // {     
+    //     Node* newNode = (Node*)malloc(sizeof(Node));
+    //     newNode->m_Data = data;
+    //     newNode->m_Next = nullptr;
+
+    //     if (*head != nullptr)
+    //     {
+    //         Node* tempNode = *head;
+            
+    //         while (tempNode->m_Next != nullptr)
+    //             tempNode = tempNode->m_Next;
+            
+    //         tempNode->m_Next = newNode;
+
+    //         FileStream::Write("list added " + std::to_string(data) + "\n");
+    //     }
+    //     else
+    //     {
+    //         *head = newNode;
+    //         FileStream::Write("list added " + std::to_string(data) + "\n");
+    //     }
+    // }
 
     int32_t Min(Node* head)
     {
@@ -122,7 +117,7 @@ public:
             if (tempNode->m_Data == data)
             {
                 deleteNode = tempNode;
-                tempNode = tempNode->m_Next;
+                tempNode = tempNode->m_Next->m_Next;
                 delete deleteNode;
 
                 FileStream::Write("list deleted " + std::to_string(data) + "\n");

@@ -29,3 +29,4 @@ bst add 20
 bst add 10 
 bst delete 30 
 bst inorder 
+

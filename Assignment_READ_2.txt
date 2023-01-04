@@ -1,0 +1,34 @@
+SortedLinkedList sll
+sll add 80
+sll add 20
+sll add 1000
+sll add 50
+sll delete 1000
+sll print
+
+LinkedList lst
+lst add 20
+lst add 10
+lst add 70
+lst add 40
+lst min
+lst max
+lst delete 10
+lst search 45
+lst print
+
+BinarySearchTree binSearchTree
+binSearchTree add 100
+binSearchTree add 400
+binSearchTree add 300
+binSearchTree add 200
+binSearchTree delete 300
+binSearchTree inorder
+
+LinkedStack stk
+stk add 11
+stk add 777
+stk add 55
+stk add 22
+stk delete
+stk print
