@@ -502,7 +502,8 @@ int main()
 
     // EnvironmentIdBuilder id;
     // id.ParseFileIntoWordComponents();
-
+    EnvironmentIdBuilder id;
+    
     // FileStream filepath("./Assignment_READ.txt");
     // filepath.Read();
     

@@ -368,6 +368,8 @@ public:
             commandIndex++;
     }
 
+    const DataStructureAndAlgorithms& GetDsa(int16_t index) { return m_DSA[index]; } 
+
     const std::string&  GetId() const { return m_DSA[environmentIndex].m_Id; }
     const std::string&  GetId(int16_t index) const { return m_DSA[index].m_Id; }
     
@@ -383,7 +385,12 @@ public:
     const int32_t       GetValue() const { return m_DSA[environmentIndex].m_Value[commandIndex]; }
     const int32_t       GetValue(int16_t index, int16_t commandIndex) const { return m_DSA[index].m_Value[commandIndex]; }
 
-
+    std::size_t GetSize() const { return m_DSA.size(); }
+    std::size_t GetIdSize(int16_t index) const { return m_DSA[index].m_Id.size(); }
+    std::size_t GetClassNameSize(int16_t index) const { return m_DSA[index].m_ClassName.size(); }
+    std::size_t GetNameSize(int16_t index) const { return m_DSA[index].m_Name.size(); }
+    std::size_t GetCommandSize(int16_t index) const { return m_DSA[index].m_Command.size(); }
+    std::size_t GetValueSize(int16_t index) const { return m_DSA[index].m_Value.size(); }
 
 private:
     std::array<DataStructureAndAlgorithms, 4> m_DSA; 

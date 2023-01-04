@@ -54,12 +54,19 @@
 //     int32_t m_Id;
 // };
 
-class EnvironmentIdBuilder
+class EnvironmentIdBuilder : public Environment
 {
 public:
-    std::array<DataStructureAndAlgorithms, 4> GetComponents()
+    std::vector<DataStructureAndAlgorithms> GetEnvironmentComponents()
     {
-        return m_Environment.GetId();
+        std::vector<DataStructureAndAlgorithms> components;
+
+        for (int row = 0; row != m_Environment.GetSize(); ++row)
+        {
+            components.push_back({ m_Environment.GetDsa(row) });
+        }
+
+        return components;
     }
 
     void ParseFileIntoWordComponents()
